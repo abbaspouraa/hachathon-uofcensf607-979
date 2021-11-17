@@ -4,10 +4,26 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 public abstract class User {
-    String name = "";
-    Integer ucid = 0;
+    String name;
+    Integer ucid;
 
-//    password??
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getUcid() {
+        return ucid;
+    }
+
+    public void setUcid(Integer ucid) {
+        this.ucid = ucid;
+    }
+
+    //    password??
     public ArrayList<Animal> SearchAnimal(String name, String spc, Character sex){
         return null;
     }
@@ -26,5 +42,13 @@ public abstract class User {
 
     ArrayList<Animal> seeAnimalsTreatment(){
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", UCID=" + ucid +
+                '}';
     }
 }
