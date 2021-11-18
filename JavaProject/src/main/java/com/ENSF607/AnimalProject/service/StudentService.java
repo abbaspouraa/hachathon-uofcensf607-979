@@ -7,25 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class StudentService implements StudentServiceIF {
+public class StudentService {
 
-    List<Student> list = new ArrayList<>();
+    List<Student> studentList = new ArrayList<>();
 
-    @Override
     public List<Student> getAll() {
-        return list;
+        return studentList;
     }
 
-    @Override
     public Student addStudent(Student student) {
-        list.add(student);
+        studentList.add(student);
         return student;
     }
 
-    @Override
     public String deleteStudent(int UCID) {
 
-        list.removeIf(std -> std.getUcid() == UCID);
+        studentList.removeIf(std -> std.getUcid() == UCID);
 
         return "Deleted successfully!";
     }
