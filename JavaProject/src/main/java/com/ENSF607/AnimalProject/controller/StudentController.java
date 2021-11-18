@@ -3,8 +3,10 @@ package com.ENSF607.AnimalProject.controller;
 
 import com.ENSF607.AnimalProject.model.Student;
 import com.ENSF607.AnimalProject.service.StudentService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.HttpURLConnection;
 import java.util.List;
 
 @RestController
@@ -24,9 +26,9 @@ public class StudentController {
     }
 
     @PostMapping("/addStudent")
-    public String addStudent(@RequestBody Student param){
+    public ResponseEntity<Void> addStudent(@RequestBody Student param){
         studentService.addStudent(param);
-        return "Successfully added: " + param.getUcid();
+        return ResponseEntity.status(HttpURLConnection.HTTP_CREATED).build();
     }
 //
 //    @PutMapping("/get")
