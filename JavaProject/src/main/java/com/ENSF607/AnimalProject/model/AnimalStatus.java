@@ -1,5 +1,4 @@
 package com.ENSF607.AnimalProject.model;
 
-public class Student extends User{
-
+public class AnimalStatus {
 }
