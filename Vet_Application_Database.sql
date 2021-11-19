@@ -24,6 +24,12 @@ CREATE TABLE ANIMAL (
 	primary key (AnimalId,Status)
 );
 
+INSERT INTO ANIMAL (AnimalId, Name,Species, Sex, Breed, Age, RFID, Altered, Weight,Special_Problem,
+    Continuous_Medication,Special_Instractions,Special_Diet,Tatoo,Color, Status)
+VALUES
+('20','Rudy','Persian','M','Mongola','2','12343ER','Yes','10',null, null,null,null,'WAS12','Black','Healthy');
+
+
 DROP TABLE IF EXISTS USER;
 CREATE TABLE USER (
 	UserId					integer not null,
@@ -34,6 +40,12 @@ CREATE TABLE USER (
     
     primary key (UserId)
 );
+
+
+INSERT INTO USER (UserId,FName,LName,Email,Role)
+VALUES
+('1','Ali','Zirahi','ali.zirahi@gmail.com','Admin'),
+('2','Amir','Abbaspour','amir@gmail.com','Admin');
 
 DROP TABLE IF EXISTS COMMENT;
 CREATE TABLE COMMENT (
@@ -47,6 +59,12 @@ CREATE TABLE COMMENT (
     foreign key (AnimalId) references ANIMAL(AnimalId),
     foreign key (UserId) references USER(UserId)
 );
+
+
+INSERT INTO COMMENT (CmntId,Date,UserId,AnimalId,Note)
+VALUES
+('1','2021-04-20','1','20','The animal is not well');
+
 
 DROP TABLE IF EXISTS ONGOIN_CARE;
 CREATE TABLE ONGOIN_CARE (
