@@ -1,32 +1,40 @@
 package com.ENSF607.AnimalProject.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 //@Entity
 //@Table(name="User")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 public abstract class User {
-//    @Id
+    public User(){}
+
+    public User(Long userId, String fname, String lname, String role, String email) {
+        UserId = userId;
+        this.Fname = fname;
+        this.Lname = lname;
+        this.Role = role;
+        this.Email = email;
+    }
+
+    //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(name = "ucid", unique = true)
-    Long ucid;
+    Long UserId;
 
 //    @Column(name="fname")
-    String fname;
+    String Fname;
 
 //    @Column(name="lname")
-    String lname;
+    String Lname;
 
 //    @NotNull
 //    @Column(name="role")
-    protected String role;
+    protected String Role;
 
 //    @Column(name="email")
-    String email;
+    String Email;
 
 //    @Column (name = "CREATE_AT", nullable = false, updatable = false)
 //    @Temporal(TemporalType.TIMESTAMP)
@@ -50,41 +58,41 @@ public abstract class User {
     @Override
     public String toString() {
         return "User{" +
-                "fname='" + fname + '\'' +
-                ", UCID=" + ucid +
+                "fname='" + Fname + '\'' +
+                ", UCID=" + UserId +
                 '}';
     }
 
     public String getFname() {
-        return fname;
+        return Fname;
     }
 
     public void setFname(String fname) {
-        this.fname = fname;
+        this.Fname = fname;
     }
 
     public String getLname() {
-        return lname;
+        return Lname;
     }
 
     public void setLname(String lname) {
-        this.lname = lname;
+        this.Lname = lname;
     }
 
     public String getRole() {
-        return role;
+        return Role;
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.Role = role;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.Email = email;
     }
 
 //    public Date getCreatedAt() {
@@ -104,11 +112,11 @@ public abstract class User {
 //    }
 
     public void setUcid(Long ucid) {
-        this.ucid = ucid;
+        this.UserId = ucid;
     }
 
 //    @Id
     public Long getUcid() {
-        return ucid;
+        return UserId;
     }
 }
