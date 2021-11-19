@@ -4,148 +4,139 @@ import java.util.ArrayList;
 
 public class Animal {
 	
-	Integer id;
-	String name;
-	String species;
-	Character sex;
-	String breed;
-	Integer age;
-	String rfid;
-	String altered;
-	Double weight;
-	String specialProblem;
-	String continuousMedication;
-	String specialInstructions;
-	String specialDiet;
-	String tatoo;
-	String cityTatoo;
-	String colour;
-	ArrayList<AnimalStatus> status;
+	Integer AnimalId;
+	String Name;
+	String Species;
+	Character Sex;
+	String Breed;
+	Integer Age;
+	String RFID;
+	String Altered;
+	Double Weight;
+	String Special_Problem;
+	String Continuous_Medication;
+	String Special_Instructions;
+	String Special_Diet;
+	String Tatoo;
+	String Color;
+	ArrayList<AnimalStatus> Status;
 	
 	public Animal (String name, Integer id, String species, Character sex, String breed, Integer age, String rfid,
 			String altered, Double weight, String specialProblem, String continuousMedication, String specialInstructions,
-			String specialDiet, String tatoo, String cityTatoo, String colour, ArrayList<AnimalStatus> status) {
-		this.name = name;
-		this.id = id;
-		this.species = species;
-		this.sex = sex;
-		this.breed = breed;
-		this.age = age;
-		this.rfid = rfid;
-		this.altered = altered;
-		this.weight = weight;
-		this.specialProblem = specialProblem;
-		this.continuousMedication = continuousMedication;
-		this.specialInstructions = specialInstructions;
-		this.specialDiet = specialDiet;
-		this.tatoo = tatoo;
-		this.cityTatoo = cityTatoo;
-		this.colour = colour;
-		this.status = status;
+			String specialDiet, String tatoo, String colour, ArrayList<AnimalStatus> status) {
+		this.Name = name;
+		this.AnimalId = id;
+		this.Species = species;
+		this.Sex = sex;
+		this.Breed = breed;
+		this.Age = age;
+		this.RFID = rfid;
+		this.Altered = altered;
+		this.Weight = weight;
+		this.Special_Problem = specialProblem;
+		this.Continuous_Medication = continuousMedication;
+		this.Special_Instructions = specialInstructions;
+		this.Special_Diet = specialDiet;
+		this.Tatoo = tatoo;
+		this.Color = colour;
+		this.Status = status;
 	}
 	
 	public String getName() {
-		return name;
+		return Name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.Name = name;
 	}
-	public Integer getId() {
-		return id;
+	public Integer getAnimalId() {
+		return AnimalId;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setAnimalId(Integer id) {
+		this.AnimalId = id;
 	}
 	public String getSpecies() {
-		return species;
+		return Species;
 	}
 	public void setSpecies(String species) {
-		this.species = species;
+		this.Species = species;
 	}
 	public Character getSex() {
-		return sex;
+		return Sex;
 	}
 	public void setSex(Character sex) {
-		this.sex = sex;
+		this.Sex = sex;
 	}
 	public String getBreed() {
-		return breed;
+		return Breed;
 	}
 	public void setBreed(String breed) {
-		this.breed = breed;
+		this.Breed = breed;
 	}
 	public Integer getAge() {
-		return age;
+		return Age;
 	}
 	public void setAge(Integer age) {
-		this.age = age;
+		this.Age = age;
 	}
 	public String getRfid() {
-		return rfid;
+		return RFID;
 	}
 	public void setRfid(String rfid) {
-		this.rfid = rfid;
+		this.RFID = rfid;
 	}
 	public String getAltered() {
-		return altered;
+		return Altered;
 	}
 	public void setAltered(String altered) {
-		this.altered = altered;
+		this.Altered = altered;
 	}
 	public Double getWeight() {
-		return weight;
+		return Weight;
 	}
 	public void setWeight(Double weight) {
-		this.weight = weight;
+		this.Weight = weight;
 	}
-	public String getSpecialProblem() {
-		return specialProblem;
+	public String getSpecial_Problem() {
+		return Special_Problem;
 	}
-	public void setSpecialProblem(String specialProblem) {
-		this.specialProblem = specialProblem;
+	public void setSpecial_Problem(String specialProblem) {
+		this.Special_Problem = specialProblem;
 	}
-	public String getContinuousMedication() {
-		return continuousMedication;
+	public String getContinuous_Medication() {
+		return Continuous_Medication;
 	}
-	public void setContinuousMedication(String continuousMedication) {
-		this.continuousMedication = continuousMedication;
+	public void setContinuous_Medication(String continuousMedication) {
+		this.Continuous_Medication = continuousMedication;
 	}
-	public String getSpecialInstructions() {
-		return specialInstructions;
+	public String getSpecial_Instructions() {
+		return Special_Instructions;
 	}
-	public void setSpecialInstructions(String specialInstructions) {
-		this.specialInstructions = specialInstructions;
+	public void setSpecial_Instructions(String specialInstructions) {
+		this.Special_Instructions = specialInstructions;
 	}
-	public String getSpecialDiet() {
-		return specialDiet;
+	public String getSpecial_Diet() {
+		return Special_Diet;
 	}
-	public void setSpecialDiet(String specialDiet) {
-		this.specialDiet = specialDiet;
+	public void setSpecial_Diet(String specialDiet) {
+		this.Special_Diet = specialDiet;
 	}
 	public String getTatoo() {
-		return tatoo;
+		return Tatoo;
 	}
 	public void setTatoo(String tatoo) {
-		this.tatoo = tatoo;
+		this.Tatoo = tatoo;
 	}
-	public String getCityTatoo() {
-		return cityTatoo;
+	public String getColor() {
+		return Color;
 	}
-	public void setCityTatoo(String cityTatoo) {
-		this.cityTatoo = cityTatoo;
-	}
-	public String getColour() {
-		return colour;
-	}
-	public void setColour(String colour) {
-		this.colour = colour;
+	public void setColor(String colour) {
+		this.Color = colour;
 	}
 	public ArrayList<AnimalStatus> getStatus() {
-		return status;
+		return Status;
 	}
 	public void setStatus(ArrayList<AnimalStatus> status) {
-		this.status = status;
+		this.Status = status;
 	}	
-	
 	
 }
