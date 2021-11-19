@@ -6,3 +6,5 @@ JavaProject/target/classes/com/ENSF607/AnimalProject/service/StudentService.clas
 JavaProject/target/classes/com/ENSF607/AnimalProject/model/User.class
 JavaProject/target/classes/com/ENSF607/AnimalProject/model/Student.class
 JavaProject/target/classes/com/ENSF607/AnimalProject/controller/StudentController.class
+JavaProject/src/main/resources/application.properties
+JavaProject/target/classes/application.properties
