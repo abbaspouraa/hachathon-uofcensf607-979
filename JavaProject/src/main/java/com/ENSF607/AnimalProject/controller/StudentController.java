@@ -1,7 +1,8 @@
 package com.ENSF607.AnimalProject.controller;
 
 
-import com.ENSF607.AnimalProject.model.Student;
+import com.ENSF607.AnimalProject.model.Animal;
+import com.ENSF607.AnimalProject.model.Comment;
 import com.ENSF607.AnimalProject.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,14 +21,14 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/getAll")
-    public List<Student> getAllData(){
-        return studentService.getAll();
+    @GetMapping("/getAllAnimals")
+    public List<Animal> getAllData(@RequestBody Animal param){
+        return studentService.SearchAnimal(param);
     }
 
-    @PostMapping("/addStudent")
-    public ResponseEntity<Void> addStudent(@RequestBody Student param){
-        studentService.addStudent(param);
+    @PostMapping("/addComment")
+    public ResponseEntity<Void> addComment(@RequestBody Comment param){
+        studentService.makeComment(param);
         return ResponseEntity.status(HttpURLConnection.HTTP_CREATED).build();
     }
 //
@@ -41,8 +42,8 @@ public class StudentController {
 //        return "PatchMapping";
 //    }
 
-    @GetMapping("/delete/{ucid}")
-    public String DeleteMapping(@PathVariable("ucid") int UCID){
-        return "Deleted Successfully: " + studentService.deleteStudent(UCID);
-    }
+//    @GetMapping("/delete/{ucid}")
+//    public String DeleteMapping(@PathVariable("ucid") int UCID){
+//        return "Deleted Successfully: " + studentService.deleteStudent(UCID);
+//    }
 }

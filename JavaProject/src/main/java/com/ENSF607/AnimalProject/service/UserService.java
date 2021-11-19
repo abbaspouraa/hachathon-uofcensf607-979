@@ -15,7 +15,10 @@ public class UserService {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public List<Animal> SearchAnimal(String name, String spc, Character sex) {
+    public List<Animal> SearchAnimal(Animal animal) {
+        String name = animal.getName();
+        String spc = animal.getSpecies();
+        Character sex = animal.getSex();
         String query = "SELECT * FROM animal WHERE name = \""
                 + name + "\" AND species = \""
                 + spc + "\" AND sex = '"
