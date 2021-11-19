@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,27 +15,35 @@ public class UserService {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-//    ArrayList<Comment> commentList;
-//    ArrayList<Animal> animalList;
-//    ArrayList<AnimalStatus> animalStatusesList;
+    public List<Animal> SearchAnimal(String name, String spc, Character sex) {
+        String query = "SELECT * FROM animal WHERE name = \""
+                + name + "\" AND species = \""
+                + spc + "\" AND sex = '"
+                + sex + '\'';
 
-    //    password??
-    public List<Comment> SearchAnimal(String name, String spc, Character sex) {
-        String query = "";
         return jdbcTemplate.query(
                 query,
-                new BeanPropertyRowMapper<>(Animal.class)
+                new BeanPropertyRowMapper<Animal>(Animal.class)
         );
     }
 
-
     public void makeComment(Comment comment){
-//        Time time, Integer ucid, Integer animalId, String comment
-        commentList.add(comment);
+//        Integer cmntID, Timer date, Integer userID, Integer animalID, String note
+        String query = "INSERT INTO comment(CmntId,Date,UserId,AnimalId,Note)\n" +
+                "VALUES\n" +
+                "(?,?,?,?,?);";
+        jdbcTemplate.update(
+                query,
+                comment.getID(),
+                comment.getDate(),
+                comment.getUserId(),
+                comment.getAnimalId(),
+                comment.getNote()
+        );
     }
 
     public List<Comment> seeComments(Integer animalId){
-        String query = "SELECT * FROM COMMENT";
+        String query = "SELECT * FROM comment";
         return jdbcTemplate.query(
                 query,
                 new BeanPropertyRowMapper<Comment>(Comment.class)
@@ -44,16 +51,18 @@ public class UserService {
     }
 
     public List<Animal> seeAlertedAnimals(){
-        ArrayList<Animal> animalQuery = new ArrayList<Animal>(0);
-        for (Animal anm:animalList){
-            if (anm.getStatus().equals("Alerting")){
-                animalQuery.add(anm);
-            }
-        }
-        return animalQuery;
+        String query = "SELECT * FROM animal WHERE status = \"Alerting\"";
+        return jdbcTemplate.query(
+                query,
+                new BeanPropertyRowMapper<Animal>(Animal.class)
+        );
     }
 
-    ArrayList<AnimalStatus> seeAnimalsTreatment(){
-        return animalStatusesList;
+    public List<AnimalStatus> seeAnimalsTreatment(){
+        String query = "SELECT * FROM animalstatus";
+        return jdbcTemplate.query(
+                query,
+                new BeanPropertyRowMapper<AnimalStatus>(AnimalStatus.class)
+        );
     }
 }
