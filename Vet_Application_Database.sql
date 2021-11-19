@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS VET;
-CREATE DATABASE VET; 
-USE VET;
+DROP DATABASE IF EXISTS Vet_Application;
+CREATE DATABASE Vet_Application; 
+USE Vet_Application;
 
 DROP TABLE IF EXISTS ANIMAL;
 CREATE TABLE ANIMAL (
@@ -23,10 +23,12 @@ CREATE TABLE ANIMAL (
     
 	primary key (AnimalId,Status)
 );
+
 INSERT INTO ANIMAL (AnimalId, Name,Species, Sex, Breed, Age, RFID, Altered, Weight,Special_Problem,
     Continuous_Medication,Special_Instractions,Special_Diet,Tatoo,Color, Status)
 VALUES
 ('20','Rudy','Persian','M','Mongola','2','12343ER','Yes','10',null, null,null,null,'WAS12','Black','Healthy');
+
 
 DROP TABLE IF EXISTS USER;
 CREATE TABLE USER (
@@ -38,6 +40,7 @@ CREATE TABLE USER (
     
     primary key (UserId)
 );
+
 
 INSERT INTO USER (UserId,FName,LName,Email,Role)
 VALUES
@@ -56,6 +59,7 @@ CREATE TABLE COMMENT (
     foreign key (AnimalId) references ANIMAL(AnimalId),
     foreign key (UserId) references USER(UserId)
 );
+
 
 INSERT INTO COMMENT (CmntId,Date,UserId,AnimalId,Note)
 VALUES
