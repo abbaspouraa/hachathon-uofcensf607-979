@@ -1,48 +1,50 @@
 package com.ENSF607.AnimalProject.model;
 
-import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Date;
-
-@Entity
-@Table(name="User")
+//@Entity
+//@Table(name="User")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public abstract class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ucid", unique = true)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "ucid", unique = true)
     Long ucid;
 
-    @Column(name="fname")
+//    @Column(name="fname")
     String fname;
 
-    @Column(name="lname")
+//    @Column(name="lname")
     String lname;
 
-    @NotNull
-    @Column(name="role")
-    String role;
+//    @NotNull
+//    @Column(name="role")
+    protected String role;
 
-    @Column(name="email")
+//    @Column(name="email")
     String email;
 
-    @Column (name = "CREATE_AT", nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
+//    @Column (name = "CREATE_AT", nullable = false, updatable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createdAt;
 
-    @Column (name = "UPDATE_AT", nullable = true)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updateAt;
+//    @Column (name = "UPDATE_AT", nullable = true)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date updateAt;
 
-    @PrePersist
-    public void setCreationDate(){
-        this.createdAt = new Date();
-    }
+//    @PrePersist
+//    public void setCreationDate(){
+//        this.createdAt = new Date();
+//    }
 
-    @PreUpdate
-    public void setChangeDate(){
-        this.updateAt = new Date();
-    }
+//    @PreUpdate
+//    public void setChangeDate(){
+//        this.updateAt = new Date();
+//    }
 
 
     @Override
@@ -85,27 +87,27 @@ public abstract class User {
         this.email = email;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
+//    public Date getCreatedAt() {
+//        return createdAt;
+//    }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
+//    public void setCreatedAt(Date createdAt) {
+//        this.createdAt = createdAt;
+//    }
 
-    public Date getUpdateAt() {
-        return updateAt;
-    }
+//    public Date getUpdateAt() {
+//        return updateAt;
+//    }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
-    }
+//    public void setUpdateAt(Date updateAt) {
+//        this.updateAt = updateAt;
+//    }
 
     public void setUcid(Long ucid) {
         this.ucid = ucid;
     }
 
-    @Id
+//    @Id
     public Long getUcid() {
         return ucid;
     }

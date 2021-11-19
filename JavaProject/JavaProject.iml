@@ -26,6 +26,7 @@
       <configuration>
         <fileset id="fileset" name="SwaggerCustomerConfig" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/com/ENSF607/AnimalProject/configuration/SwaggerCustomerConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/ENSF607/AnimalProject/config/DatasourceConfig.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -123,5 +124,6 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.3.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.2.15.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.2.15.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.20" level="project" />
   </component>
 </module>
