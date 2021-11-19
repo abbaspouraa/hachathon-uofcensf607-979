@@ -20,10 +20,11 @@ public class Animal {
 	String Tatoo;
 	String Color;
 	ArrayList<AnimalStatus> Status;
+	Integer BookedId;
 	
 	public Animal (String name, Integer id, String species, Character sex, String breed, Integer age, String rfid,
 			String altered, Double weight, String specialProblem, String continuousMedication, String specialInstructions,
-			String specialDiet, String tatoo, String colour, ArrayList<AnimalStatus> status) {
+			String specialDiet, String tatoo, String colour, ArrayList<AnimalStatus> status, Integer bookedId) {
 		this.Name = name;
 		this.AnimalId = id;
 		this.Species = species;
@@ -40,6 +41,7 @@ public class Animal {
 		this.Tatoo = tatoo;
 		this.Color = colour;
 		this.Status = status;
+		this.BookedId = bookedId;
 	}
 	
 	public String getName() {
@@ -137,6 +139,12 @@ public class Animal {
 	}
 	public void setStatus(ArrayList<AnimalStatus> status) {
 		this.Status = status;
-	}	
+	}
+	public Integer getBookedId() {
+		return BookedId;
+	}
+	public void setBookedId(Integer bookedId) {
+		this.BookedId = bookedId;
+	}
 	
 }
