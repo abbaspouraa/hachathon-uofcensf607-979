@@ -4,25 +4,45 @@ import java.util.ArrayList;
 
 public class Animal {
 	
-	String name;
 	Integer id;
+	String name;
 	String species;
-	String sex;
+	Character sex;
 	String breed;
 	Integer age;
-	Integer rfid;
+	String rfid;
 	String altered;
 	Double weight;
 	String specialProblem;
 	String continuousMedication;
 	String specialInstructions;
 	String specialDiet;
-	Integer tatoo;
-	Integer cityTatoo;
-	String coatColour;
+	String tatoo;
+	String cityTatoo;
+	String colour;
 	ArrayList<AnimalStatus> status;
-	Integer microchip;
 	
+	public Animal (String name, Integer id, String species, Character sex, String breed, Integer age, String rfid,
+			String altered, Double weight, String specialProblem, String continuousMedication, String specialInstructions,
+			String specialDiet, String tatoo, String cityTatoo, String colour, ArrayList<AnimalStatus> status) {
+		this.name = name;
+		this.id = id;
+		this.species = species;
+		this.sex = sex;
+		this.breed = breed;
+		this.age = age;
+		this.rfid = rfid;
+		this.altered = altered;
+		this.weight = weight;
+		this.specialProblem = specialProblem;
+		this.continuousMedication = continuousMedication;
+		this.specialInstructions = specialInstructions;
+		this.specialDiet = specialDiet;
+		this.tatoo = tatoo;
+		this.cityTatoo = cityTatoo;
+		this.colour = colour;
+		this.status = status;
+	}
 	
 	public String getName() {
 		return name;
@@ -42,10 +62,10 @@ public class Animal {
 	public void setSpecies(String species) {
 		this.species = species;
 	}
-	public String getSex() {
+	public Character getSex() {
 		return sex;
 	}
-	public void setSex(String sex) {
+	public void setSex(Character sex) {
 		this.sex = sex;
 	}
 	public String getBreed() {
@@ -60,10 +80,10 @@ public class Animal {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public Integer getRfid() {
+	public String getRfid() {
 		return rfid;
 	}
-	public void setRfid(Integer rfid) {
+	public void setRfid(String rfid) {
 		this.rfid = rfid;
 	}
 	public String getAltered() {
@@ -102,38 +122,30 @@ public class Animal {
 	public void setSpecialDiet(String specialDiet) {
 		this.specialDiet = specialDiet;
 	}
-	public Integer getTatoo() {
+	public String getTatoo() {
 		return tatoo;
 	}
-	public void setTatoo(Integer tatoo) {
+	public void setTatoo(String tatoo) {
 		this.tatoo = tatoo;
 	}
-	public Integer getCityTatoo() {
+	public String getCityTatoo() {
 		return cityTatoo;
 	}
-	public void setCityTatoo(Integer cityTatoo) {
+	public void setCityTatoo(String cityTatoo) {
 		this.cityTatoo = cityTatoo;
 	}
-	public String getCoatColour() {
-		return coatColour;
+	public String getColour() {
+		return colour;
 	}
-	public void setCoatColour(String coatColour) {
-		this.coatColour = coatColour;
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
 	public ArrayList<AnimalStatus> getStatus() {
 		return status;
 	}
 	public void setStatus(ArrayList<AnimalStatus> status) {
 		this.status = status;
-	}
-	public Integer getMicrochip() {
-		return microchip;
-	}
-	public void setMicrochip(Integer microchip) {
-		this.microchip = microchip;
-	}
-	
-	
+	}	
 	
 	
 }
