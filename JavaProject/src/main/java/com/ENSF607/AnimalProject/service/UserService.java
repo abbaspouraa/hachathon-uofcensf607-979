@@ -37,7 +37,7 @@ public class UserService {
                 "(?,?,?,?,?);";
         jdbcTemplate.update(
                 query,
-                comment.getID(),
+                comment.getCmntId(),
                 comment.getDate(),
                 comment.getUserId(),
                 comment.getAnimalId(),
