@@ -1,32 +1,25 @@
 package com.ENSF607.AnimalProject.service;
 
-import com.ENSF607.AnimalProject.model.Student;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
-public class StudentService implements StudentServiceIF {
+public class StudentService extends UserService{
 
-    List<Student> list = new ArrayList<>();
+//    List<Student> studentList = new ArrayList<>();
 
-    @Override
-    public List<Student> getAll() {
-        return list;
-    }
-
-    @Override
-    public Student addStudent(Student student) {
-        list.add(student);
-        return student;
-    }
-
-    @Override
-    public String deleteStudent(int UCID) {
-
-        list.removeIf(std -> std.getUcid() == UCID);
-
-        return "Deleted successfully!";
-    }
+//    public List<Student> getAll() {
+//        return studentList;
+//    }
+//
+//    public Student addStudent(Student student) {
+//        studentList.add(student);
+//        return student;
+//    }
+//
+//    public String deleteStudent(int UCID) {
+//
+//        studentList.removeIf(std -> std.getUcid() == UCID);
+//
+//        return "Deleted successfully!";
+//    }
 }
