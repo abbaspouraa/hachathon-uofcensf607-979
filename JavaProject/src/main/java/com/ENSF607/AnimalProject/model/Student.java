@@ -1,14 +1,17 @@
 package com.ENSF607.AnimalProject.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Student extends User{
-    Student(){
-        super.role="Student";
+
+    public Student(){
+        super.Role ="Student";
+    }
+
+    public Student(Long userId, String Fname, String Lname, String role, String email) {
+        super(userId, Fname, Lname, "Student", email);
     }
 }
