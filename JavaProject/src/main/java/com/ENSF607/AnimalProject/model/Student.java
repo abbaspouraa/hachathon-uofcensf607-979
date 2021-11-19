@@ -8,10 +8,7 @@ import lombok.Data;
 public class Student extends User{
 
     public Student(){
-        super.Role ="Student";
+        super.role ="Student";
     }
 
-    public Student(Long userId, String Fname, String Lname, String role, String email) {
-        super(userId, Fname, Lname, "Student", email);
-    }
 }

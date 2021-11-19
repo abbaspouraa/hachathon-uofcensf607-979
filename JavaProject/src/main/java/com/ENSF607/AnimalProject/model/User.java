@@ -7,116 +7,70 @@ import lombok.Data;
 @Data
 //@AllArgsConstructor
 //@NoArgsConstructor
-public abstract class User {
+public class User {
     public User(){}
 
-    public User(Long userId, String fname, String lname, String role, String email) {
-        UserId = userId;
-        this.Fname = fname;
-        this.Lname = lname;
-        this.Role = role;
-        this.Email = email;
+    public User(Long userId, String password, String fName, String lName, String role, String email) {
+        this.userId = userId;
+        this.password = password;
+        this.fName = fName;
+        this.lName = lName;
+        this.role = role;
+        this.email = email;
     }
 
-    //    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "ucid", unique = true)
-    Long UserId;
+    Long userId;
+    String password;
+    String fName;
+    String lName;
+    protected String role;
+    String email;
 
-//    @Column(name="fname")
-    String Fname;
-
-//    @Column(name="lname")
-    String Lname;
-
-//    @NotNull
-//    @Column(name="role")
-    protected String Role;
-
-//    @Column(name="email")
-    String Email;
-
-//    @Column (name = "CREATE_AT", nullable = false, updatable = false)
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date createdAt;
-
-//    @Column (name = "UPDATE_AT", nullable = true)
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date updateAt;
-
-//    @PrePersist
-//    public void setCreationDate(){
-//        this.createdAt = new Date();
-//    }
-
-//    @PreUpdate
-//    public void setChangeDate(){
-//        this.updateAt = new Date();
-//    }
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "fname='" + Fname + '\'' +
-                ", UCID=" + UserId +
-                '}';
+    public Long getUserId() {
+        return userId;
     }
 
-    public String getFname() {
-        return Fname;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public void setFname(String fname) {
-        this.Fname = fname;
+    public String getPassword() {
+        return password;
     }
 
-    public String getLname() {
-        return Lname;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setLname(String lname) {
-        this.Lname = lname;
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
     }
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
     public void setRole(String role) {
-        this.Role = role;
+        this.role = role;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.Email = email;
-    }
-
-//    public Date getCreatedAt() {
-//        return createdAt;
-//    }
-
-//    public void setCreatedAt(Date createdAt) {
-//        this.createdAt = createdAt;
-//    }
-
-//    public Date getUpdateAt() {
-//        return updateAt;
-//    }
-
-//    public void setUpdateAt(Date updateAt) {
-//        this.updateAt = updateAt;
-//    }
-
-    public void setUcid(Long ucid) {
-        this.UserId = ucid;
-    }
-
-//    @Id
-    public Long getUcid() {
-        return UserId;
+        this.email = email;
     }
 }

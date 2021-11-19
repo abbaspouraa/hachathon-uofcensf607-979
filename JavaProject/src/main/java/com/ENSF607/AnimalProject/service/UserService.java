@@ -1,8 +1,6 @@
 package com.ENSF607.AnimalProject.service;
 
-import com.ENSF607.AnimalProject.model.Animal;
-import com.ENSF607.AnimalProject.model.AnimalStatus;
-import com.ENSF607.AnimalProject.model.Comment;
+import com.ENSF607.AnimalProject.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,35 +13,20 @@ public class UserService {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public List<Animal> SearchAnimal(Animal animal) {
-        String name = animal.getName();
-        String spc = animal.getSpecies();
-        Character sex = animal.getSex();
-        String query = "SELECT * FROM animal WHERE name = \""
-                + name + "\" AND species = \""
-                + spc + "\" AND sex = '"
-                + sex + '\'';
-
+    public List<User> findUser(String userId, String pass){
+        String query = "SELECT * FROM user WHERE userId=\"" +
+                userId +
+                "\" AND password = \"" +
+                pass + "\";";
         return jdbcTemplate.query(
                 query,
-                new BeanPropertyRowMapper<Animal>(Animal.class)
+                new BeanPropertyRowMapper<User>(User.class)
         );
     }
 
-    public void makeComment(Comment comment){
-//        Integer cmntID, Timer date, Integer userID, Integer animalID, String note
-        String query = "INSERT INTO comment(CmntId,Date,UserId,AnimalId,Note)\n" +
-                "VALUES\n" +
-                "(?,?,?,?,?);";
-        jdbcTemplate.update(
-                query,
-                comment.getID(),
-                comment.getDate(),
-                comment.getUserId(),
-                comment.getAnimalId(),
-                comment.getNote()
-        );
-    }
+
+
+
 
     public List<Comment> seeComments(Integer animalId){
         String query = "SELECT * FROM comment";

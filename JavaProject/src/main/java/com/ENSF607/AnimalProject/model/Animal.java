@@ -1,7 +1,5 @@
 package com.ENSF607.AnimalProject.model;
 
-import java.util.ArrayList;
-
 public class Animal {
 	
 	Integer AnimalId;
@@ -19,12 +17,20 @@ public class Animal {
 	String Special_Diet;
 	String Tatoo;
 	String Color;
-	ArrayList<AnimalStatus> Status;
+	String Status;
 	Integer BookedId;
-	
+
+	public Animal(String name, String species, Character sex) {
+		Name = name;
+		Species = species;
+		Sex = sex;
+	}
+
+	public Animal(){}
+
 	public Animal (String name, Integer id, String species, Character sex, String breed, Integer age, String rfid,
-			String altered, Double weight, String specialProblem, String continuousMedication, String specialInstructions,
-			String specialDiet, String tatoo, String colour, ArrayList<AnimalStatus> status, Integer bookedId) {
+				   String altered, Double weight, String specialProblem, String continuousMedication, String specialInstructions,
+				   String specialDiet, String tatoo, String colour, String status, Integer bookedId) {
 		this.Name = name;
 		this.AnimalId = id;
 		this.Species = species;
@@ -134,10 +140,10 @@ public class Animal {
 	public void setColor(String colour) {
 		this.Color = colour;
 	}
-	public ArrayList<AnimalStatus> getStatus() {
+	public String getStatus() {
 		return Status;
 	}
-	public void setStatus(ArrayList<AnimalStatus> status) {
+	public void setStatus(String status) {
 		this.Status = status;
 	}
 	public Integer getBookedId() {

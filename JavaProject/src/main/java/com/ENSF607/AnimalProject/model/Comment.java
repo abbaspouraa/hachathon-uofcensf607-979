@@ -1,61 +1,59 @@
 package com.ENSF607.AnimalProject.model;
 
-import java.util.Date;
-
 public class Comment {
-    private Integer CmntId;
-    private Date Date;
-    private Integer UserId;
-    private Integer AnimalId;
-    private String Note;
+    private Integer cmntId;
+    private String date;
+    private Integer userId;
+    private Integer animalId;
+    private String note;
 
     public Comment(){};
 
-    public Comment(Integer cmntId, java.util.Date date, Integer userId, Integer animalId, String note) {
-        CmntId = cmntId;
-        Date = date;
-        UserId = userId;
-        AnimalId = animalId;
-        Note = note;
+    public Comment(Integer cmntId, String date, Integer userId, Integer animalId, String note) {
+        this.cmntId = cmntId;
+        this.date = date;
+        this.userId = userId;
+        this.animalId = animalId;
+        this.note = note;
     }
 
     public Integer getCmntId() {
-        return CmntId;
+        return cmntId;
     }
 
     public void setCmntId(Integer cmntId) {
-        CmntId = cmntId;
+        this.cmntId = cmntId;
     }
 
-    public java.util.Date getDate() {
-        return Date;
+    public String getDate() {
+        return date;
     }
 
-    public void setDate(java.util.Date date) {
-        Date = date;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public Integer getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(Integer userId) {
-        UserId = userId;
+        this.userId = userId;
     }
 
     public Integer getAnimalId() {
-        return AnimalId;
+        return animalId;
     }
 
     public void setAnimalId(Integer animalId) {
-        AnimalId = animalId;
+        this.animalId = animalId;
     }
 
     public String getNote() {
-        return Note;
+        return note;
     }
 
     public void setNote(String note) {
-        Note = note;
+        this.note = note;
     }
 }
