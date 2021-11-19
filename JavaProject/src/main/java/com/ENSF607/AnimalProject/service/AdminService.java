@@ -18,11 +18,11 @@ public class AdminService {
         return template.query("SELECT * FROM USER", new BeanPropertyRowMapper<User>(User.class));
     }
 	
-	public User addUser(User user) {
-		template.update("INSERT INTO USER (UserID, FName, LName, Email, Role) VALUES (?, ?, ?, ?, ?)", 
-				new Object[] {user.getUserId(), user.getfName(), user.getlName(), user.getEmail(), user.getRole()});
-		return user;
-	}
+//	public User addUser(User user) {
+//		template.update("INSERT INTO USER (UserID, FName, LName, Email, Role) VALUES (?, ?, ?, ?, ?)",
+//				new Object[] {user.getUserId(), user.getfName(), user.getlName(), user.getEmail(), user.getRole()});
+//		return user;
+//	}
 	
 	
 }

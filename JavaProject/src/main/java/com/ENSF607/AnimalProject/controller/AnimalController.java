@@ -1,13 +1,9 @@
 package com.ENSF607.AnimalProject.controller;
 
-import com.ENSF607.AnimalProject.model.Animal;
 import com.ENSF607.AnimalProject.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/animal")
@@ -16,16 +12,16 @@ public class AnimalController {
     @Autowired
     AnimalService animalService;
 
-    @GetMapping("/getAllAnimals/{userID}/{userPass}")
-    public ResponseEntity<List<Animal>> getAllAnimal(
-            @RequestParam(value = "animalName", required = false) String name,
-            @RequestParam(value = "animalSex", required = false) String sex,
-            @RequestParam(value = "specie", required = false) String spc,
-            @PathVariable("userID") String id,
-            @PathVariable("userPass") String pass) {
-        Animal param = new Animal(name, spc, sex==null? null:sex.charAt(0));
-        return ResponseEntity.status(HttpStatus.OK).body(animalService.searchAnimal(param, id, pass));
-    }
+//    @GetMapping("/getAllAnimals/{userID}/{userPass}")
+//    public ResponseEntity<List<Animal>> getAllAnimal(
+//            @RequestParam(value = "animalName", required = false) String name,
+//            @RequestParam(value = "animalSex", required = false) String sex,
+//            @RequestParam(value = "specie", required = false) String spc,
+//            @PathVariable("userID") String id,
+//            @PathVariable("userPass") String pass) {
+//        Animal param = new Animal(name, spc, sex==null? null:sex.charAt(0));
+//        return ResponseEntity.status(HttpStatus.OK).body(animalService.searchAnimal(param, id, pass));
+//    }
 
 //	final AnimalService animalService;
 

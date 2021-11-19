@@ -1,26 +1,26 @@
-package com.ENSF607.AnimalProject.controller;
-
-
-import com.ENSF607.AnimalProject.model.Animal;
-import com.ENSF607.AnimalProject.model.Comment;
-import com.ENSF607.AnimalProject.service.StudentService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.net.HttpURLConnection;
-import java.util.List;
-
-@RestController
-@RequestMapping(value = "/api/student")
-public class StudentController {
-
-    final
-    StudentService studentService;
-
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
+//package com.ENSF607.AnimalProject.controller;
+//
+//
+//import com.ENSF607.AnimalProject.model.Animal;
+//import com.ENSF607.AnimalProject.model.Comment;
+//import com.ENSF607.AnimalProject.service.StudentService;
+//import org.springframework.http.HttpStatus;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.net.HttpURLConnection;
+//import java.util.List;
+//
+//@RestController
+//@RequestMapping(value = "/api/student")
+//public class StudentController {
+//
+//    final
+//    StudentService studentService;
+//
+//    public StudentController(StudentService studentService) {
+//        this.studentService = studentService;
+//    }
 
     //    @PostMapping("/getAllAnimals/{id}/{pass}")
 //    @RequestMapping(method = RequestMethod.GET,value ="/getAllAnimals/{id}/{pass}" )
@@ -51,4 +51,4 @@ public class StudentController {
 //    public String DeleteMapping(@PathVariable("ucid") int UCID){
 //        return "Deleted Successfully: " + studentService.deleteStudent(UCID);
 //    }
-}
+//}

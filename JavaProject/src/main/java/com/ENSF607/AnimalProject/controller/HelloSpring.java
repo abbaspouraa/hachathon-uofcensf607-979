@@ -1,7 +1,6 @@
 package com.ENSF607.AnimalProject.controller;
 
 
-import com.ENSF607.AnimalProject.model.Student;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,10 +11,10 @@ public class HelloSpring {
         return "<h1>GetMapping\nfirst api</h1>";
     }
 
-    @PostMapping("/get")
-    public String postData(@RequestBody Student param){
-        return "PostMapping: " + param.toString();
-    }
+//    @PostMapping("/get")
+//    public String postData(@RequestBody Student param){
+//        return "PostMapping: " + param.toString();
+//    }
 
     @PutMapping("/get")
     public String PutMapping(){
