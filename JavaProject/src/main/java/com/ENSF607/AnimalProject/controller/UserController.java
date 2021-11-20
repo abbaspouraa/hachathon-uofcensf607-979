@@ -2,7 +2,6 @@ package com.ENSF607.AnimalProject.controller;
 
 import com.ENSF607.AnimalProject.model.User;
 import com.ENSF607.AnimalProject.service.UserServiceImpl;
-import io.swagger.v3.oas.annotations.Parameter;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,9 +36,9 @@ public class UserController {
         return ResponseEntity.status(HttpsURLConnection.HTTP_CREATED).body(userService.addUser(user, ucid, pass));
     }
 
-    @DeleteMapping("/{ucid}/{pass}")
+    @DeleteMapping("/{ucid}/{pass}/{deletedUcid}")
     public ResponseEntity<Void> deleteUser(
-            @Parameter Long deletedUcid,
+            @PathVariable Long deletedUcid,
             @PathVariable Long ucid,
             @PathVariable String pass
     ) throws AuthenticationException, NotFoundException {

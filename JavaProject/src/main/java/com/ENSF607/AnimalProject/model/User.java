@@ -1,10 +1,6 @@
 package com.ENSF607.AnimalProject.model;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="User")
@@ -15,10 +11,10 @@ public class User {
 //    @Column(name = "id")
     private Long id;
 
-    @NotNull
-    @NotBlank
+//    @NotNull
+//    @NotBlank
     @Column(unique = true)
-    @NotEmpty(message = "UserId is required!")
+//    @NotEmpty(message = "UserId is required!")
     private Long userid;
 
 //    @NotNull
