@@ -1,28 +1,26 @@
 package com.ENSF607.AnimalProject.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="COMMENT")
 public class Comment {
-    private Integer cmntId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer cmntid;
+
     private String date;
-    private Integer userId;
-    private Integer animalId;
+    private Integer userid;
+    private Integer animalid;
     private String note;
 
-    public Comment(){};
-
-    public Comment(Integer cmntId, String date, Integer userId, Integer animalId, String note) {
-        this.cmntId = cmntId;
-        this.date = date;
-        this.userId = userId;
-        this.animalId = animalId;
-        this.note = note;
+    public Integer getCmntid() {
+        return cmntid;
     }
 
-    public Integer getCmntId() {
-        return cmntId;
-    }
-
-    public void setCmntId(Integer cmntId) {
-        this.cmntId = cmntId;
+    public void setCmntid(Integer cmntid) {
+        this.cmntid = cmntid;
     }
 
     public String getDate() {
@@ -33,20 +31,20 @@ public class Comment {
         this.date = date;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUserid() {
+        return userid;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
-    public Integer getAnimalId() {
-        return animalId;
+    public Integer getAnimalid() {
+        return animalid;
     }
 
-    public void setAnimalId(Integer animalId) {
-        this.animalId = animalId;
+    public void setAnimalid(Integer animalid) {
+        this.animalid = animalid;
     }
 
     public String getNote() {
