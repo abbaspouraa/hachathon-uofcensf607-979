@@ -1,12 +1,11 @@
 package com.ENSF607.AnimalProject.service;
 
-import java.util.List;
-
+import com.ENSF607.AnimalProject.model.OngoingCare;
+import com.ENSF607.AnimalProject.repository.OngoingCareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ENSF607.AnimalProject.model.OngoingCare;
-import com.ENSF607.AnimalProject.repository.OngoingCareRepository;
+import java.util.List;
 
 @Service
 public class OngoingCareService {
@@ -15,12 +14,12 @@ public class OngoingCareService {
 	OngoingCareRepository ongoingCareRepository;
 	
 	public List<OngoingCare> searchByanimalId(Integer id){
-		return ongoingCareRepository.findByanimalId(id);
+		return ongoingCareRepository.findByanimalid(id);
 	}
 	
 	public String add(OngoingCare care){
         ongoingCareRepository.save(care);
-        return "Successfully added: Ongoing Care for animal: " + care.getAnimalId();
+        return "Successfully added: Ongoing Care for animal: " + care.getAnimalid();
     }
 	
 }

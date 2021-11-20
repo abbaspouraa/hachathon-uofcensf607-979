@@ -7,7 +7,6 @@ import com.ENSF607.AnimalProject.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,19 +25,19 @@ public class AnimalService {
 
 	public String addAnimal(Animal animal){
         animalRepository.save(animal);
-        return "Successfully added: Animal " + animal.getAnimalId();
+        return "Successfully added: Animal " + animal.getAnimalid();
     }
 	
 	public String updateAnimal(Animal animal, Integer id) {
-		Animal a = animalRepository.findByanimalId(id);
+		Animal a = animalRepository.findByanimalid(id);
 		
 		if (a == null) {
 			return "Unable to update animal, not found in the database.";
 		}
 		
-		animal.setAnimalId(id);
+		animal.setAnimalid(id);
 		animalRepository.save(animal);
-		return "Successfully updated: Animal " + animal.getAnimalId();
+		return "Successfully updated: Animal " + animal.getAnimalid();
 	}
 	
 	public String deleteAnimal(Integer id){

@@ -5,7 +5,6 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
 
 @Entity
 @Table(name="User")
@@ -32,13 +31,13 @@ public class User {
 //    @NotBlank
 //    @Column(name = "FName")
 //    @NotEmpty(message = "First name is required!")
-    private String fName;
+    private String fname;
 
 //    @NotNull
 //    @NotBlank
 //    @Column(name = "LName")
 //    @NotEmpty(message = "Last name is required!")
-    private String lName;
+    private String lname;
 
 //    @NotNull
 //    @NotBlank
@@ -52,23 +51,23 @@ public class User {
 //    @NotEmpty(message = "Email is required!")
     private String email;
 
-    @Column(name = "CREATED_AT", nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-
-    @Column(name = "UPDATED_AT", nullable = true, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
-
-    @PrePersist
-    public void setCreatedAt(){
-        this.createdAt = new Date();
-    }
-
-    @PreUpdate
-    public void setUpdatedAt(){
-        this.updatedAt = new Date();
-    }
+//    @Column(name = "CREATED_AT", nullable = false, updatable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createdAt;
+//
+//    @Column(name = "UPDATED_AT", nullable = true, updatable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date updatedAt;
+//
+//    @PrePersist
+//    public void setCreatedAt(){
+//        this.createdAt = new Date();
+//    }
+//
+//    @PreUpdate
+//    public void setUpdatedAt(){
+//        this.updatedAt = new Date();
+//    }
 
 
     public Long getUserid() {
@@ -87,20 +86,20 @@ public class User {
         this.password = password;
     }
 
-    public String getfName() {
-        return fName;
+    public String getfFname() {
+        return fname;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setfFname(String fName) {
+        this.fname = fName;
     }
 
-    public String getlName() {
-        return lName;
+    public String getlLname() {
+        return lname;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setlLname(String lName) {
+        this.lname = lName;
     }
 
     public String getRole() {
@@ -117,19 +116,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userId=" + userid +
-                ", password='" + password + '\'' +
-                ", fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
-                ", role='" + role + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 
     public void setId(Long id) {

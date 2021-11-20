@@ -15,18 +15,18 @@ CREATE TABLE ANIMAL (
     Weight					integer, -- not null,
     Special_Problem			varchar(200),
     Continuous_Medication	varchar(100),
-    Special_Instractions	varchar(200),
+    Special_Instructions	varchar(200),
     Special_Diet			varchar(200),
     Tatoo					varchar(100), -- not null,
     Color					varchar(25), -- not null,
     Status					varchar(50), -- not null,
     
-    BookedId				integer,
+    Booked_Id				integer,
     
 	primary key (AnimalId)
 );
 INSERT INTO ANIMAL (AnimalId, Name,Species, Sex, Breed, Age, RFID, Altered, Weight,Special_Problem,
-    Continuous_Medication,Special_Instractions,Special_Diet,Tatoo,Color, Status)
+    Continuous_Medication,Special_Instructions,Special_Diet,Tatoo,Color, Status)
 VALUES
 ('20','Rudy','Persian','M','Mongola','2','12343ER','Yes','10',null, null,null,null,'WAS12','Black','Healthy');
 
@@ -66,8 +66,8 @@ VALUES
 ('1','2021-04-20','1','20','The animal is not well');
 
 
-DROP TABLE IF EXISTS ONGOIN_CARE;
-CREATE TABLE ONGOIN_CARE (
+DROP TABLE IF EXISTS ONGOING_CARE;
+CREATE TABLE ONGOING_CARE (
 	CareId					integer,--  not null,
 	UserId					integer,--  not null,
     AnimalId				integer,--  not null,
