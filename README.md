@@ -19,6 +19,7 @@ ALi Zirahi	30036449
 **Please note**: Some of the tables have the annotation of "@GeneratedValue(strategy = GenerationType.AUTO)" where you are not supposed to send that attribute throu json.
 > - animalId in Animal class
 > - id in User class
+> - cmntId in the comment class
 
 **Please note**: The "sex" attribute of animal class is set to Character ('m' or 'f')!
 > - The auto-generated json has a "string" type default.
