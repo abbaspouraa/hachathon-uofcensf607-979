@@ -1,7 +1,15 @@
 package com.ENSF607.AnimalProject.controller;
 
-import com.ENSF607.AnimalProject.service.AnimalService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,54 +17,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/animal")
 public class AnimalController {
 
-    @Autowired
-    AnimalService animalService;
 
-//    @GetMapping("/getAllAnimals/{userID}/{userPass}")
-//    public ResponseEntity<List<Animal>> getAllAnimal(
-//            @RequestParam(value = "animalName", required = false) String name,
-//            @RequestParam(value = "animalSex", required = false) String sex,
-//            @RequestParam(value = "specie", required = false) String spc,
-//            @PathVariable("userID") String id,
-//            @PathVariable("userPass") String pass) {
-//        Animal param = new Animal(name, spc, sex==null? null:sex.charAt(0));
-//        return ResponseEntity.status(HttpStatus.OK).body(animalService.searchAnimal(param, id, pass));
-//    }
-
-//	final AnimalService animalService;
-
-//	public AnimalController(AnimalService service) {
-//		this.animalService = service;
-//	}
-//
-//	@GetMapping("/getAll")
-//	public List<Animal> getAllData(){
-//		return animalService.getAll();
-//	}
-//
-//	@GetMapping("/get/{name}")
-//	public List<Animal> searchByName(@PathVariable("name") String name){
-//		return animalService.searchName(name);
-//	}
-//
-//	@GetMapping("/get/{species}")
-//	public List<Animal> searchBySpecies(@PathVariable("species") String species){
-//		return animalService.searchSpecies(species);
-//	}
-//
-//	@GetMapping("/get/{sex}")
-//	public List<Animal> searchBySex(@PathVariable("sex") String sex){
-//		return animalService.searchSex(sex);
-//	}
-//
-//	@PostMapping("/addAnimal")
-//    public String addAnimal(@RequestBody Animal param){
-//        animalService.addAnimal(param);
-//        return "Successfully added: " + param.getId();
-//    }
-//
-//	@GetMapping("/delete/{id}")
-//    public String DeleteMapping(@PathVariable("id") int id){
-//        return "Deleted Successfully: " + animalService.deleteAnimal(id);
-//    }
+	@Autowired
+	private AnimalService animalService;	
+	
+	@GetMapping("/getAll")
+	public List<Animal> getAllData(){
+		return animalService.getAllData();
+	}
+	
+	@GetMapping("/get/{name}")
+	public List<Animal> searchByName(@PathVariable String name){
+		return animalService.searchByName(name);
+	}
+	
+	@PostMapping("/addAnimal")
+    public String addAnimal(@RequestBody Animal animal){
+        return animalService.addAnimal(animal);
+    }
+	
+	@PutMapping("/update/{id}")
+	public String updateAnimal(@RequestBody Animal animal, @PathVariable Integer id) {
+		return animalService.updateAnimal(animal, id);
+	}
+	
+	@DeleteMapping("/delete/{id}")
+    public String deleteAnimal(@PathVariable("id") int id){
+		return animalService.deleteAnimal(id);
+    }
+	
+	
 }
