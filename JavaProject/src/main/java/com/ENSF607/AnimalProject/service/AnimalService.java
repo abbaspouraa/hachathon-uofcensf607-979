@@ -20,7 +20,7 @@ public class AnimalService {
 	}
 	
 	public List<Animal> searchByName(String name){
-		return animalRepository.findByName(name);
+		return animalRepository.findByname(name);
 	}
 
 	public String addAnimal(Animal animal){
@@ -29,7 +29,7 @@ public class AnimalService {
     }
 	
 	public String updateAnimal(Animal animal, Integer id) {
-		Animal a = animalRepository.findByAnimalId(id);
+		Animal a = animalRepository.findByanimalId(id);
 		
 		if (a == null) {
 			return "Unable to update animal, not found in the database.";
