@@ -2,149 +2,194 @@ package com.ENSF607.AnimalProject.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+@Entity(name = "ANIMAL")
 public class Animal {
 	
-	Integer AnimalId;
-	String Name;
-	String Species;
-	Character Sex;
-	String Breed;
-	Integer Age;
-	String RFID;
-	String Altered;
-	Double Weight;
-	String Special_Problem;
-	String Continuous_Medication;
-	String Special_Instructions;
-	String Special_Diet;
-	String Tatoo;
-	String Color;
-	ArrayList<AnimalStatus> Status;
-	Integer BookedId;
+	@Id
+	@Column(name = "animalId",
+			nullable = false)
+	Integer animalId;
+	
+	@Column(name = "name",
+			nullable = false)
+	String name;
+	
+	@Column(name = "species",
+			nullable = false)
+	String species;
+	
+	@Column(name = "sex",
+			nullable = false)
+	Character sex;
+	
+	@Column(name = "breed",
+			nullable = false)
+	String breed;
+	
+	@Column(name = "age")
+	Integer age;
+	
+	@Column(name = "rfid")
+	String rfid;
+	
+	@Column(name = "altered")
+	String altered;
+	
+	@Column(name = "weight")
+	Double weight;
+	
+	@Column(name = "specialProblem")
+	String specialProblem;
+	
+	@Column(name = "continuousMedication")
+	String continuousMedication;
+	
+	@Column(name = "specialInstructions")
+	String specialInstructions;
+	
+	@Column(name = "specialDiet")
+	String specialDiet;
+	
+	@Column(name = "tatoo")
+	String tatoo;
+	
+	@Column(name = "color")
+	String color;
+	
+	@Column(name = "status")
+	ArrayList<AnimalStatus> status;
+	
+	@Column(name = "bookedId")
+	Integer bookedId;
 	
 	public Animal (String name, Integer id, String species, Character sex, String breed, Integer age, String rfid,
 			String altered, Double weight, String specialProblem, String continuousMedication, String specialInstructions,
 			String specialDiet, String tatoo, String colour, ArrayList<AnimalStatus> status, Integer bookedId) {
-		this.Name = name;
-		this.AnimalId = id;
-		this.Species = species;
-		this.Sex = sex;
-		this.Breed = breed;
-		this.Age = age;
-		this.RFID = rfid;
-		this.Altered = altered;
-		this.Weight = weight;
-		this.Special_Problem = specialProblem;
-		this.Continuous_Medication = continuousMedication;
-		this.Special_Instructions = specialInstructions;
-		this.Special_Diet = specialDiet;
-		this.Tatoo = tatoo;
-		this.Color = colour;
-		this.Status = status;
-		this.BookedId = bookedId;
+		this.name = name;
+		this.animalId = id;
+		this.species = species;
+		this.sex = sex;
+		this.breed = breed;
+		this.age = age;
+		this.rfid = rfid;
+		this.altered = altered;
+		this.weight = weight;
+		this.specialProblem = specialProblem;
+		this.continuousMedication = continuousMedication;
+		this.specialInstructions = specialInstructions;
+		this.specialDiet = specialDiet;
+		this.tatoo = tatoo;
+		this.color = colour;
+		this.status = status;
+		this.bookedId = bookedId;
 	}
 	
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		this.Name = name;
+		this.name = name;
 	}
 	public Integer getAnimalId() {
-		return AnimalId;
+		return animalId;
 	}
 	public void setAnimalId(Integer id) {
-		this.AnimalId = id;
+		this.animalId = id;
 	}
 	public String getSpecies() {
-		return Species;
+		return species;
 	}
 	public void setSpecies(String species) {
-		this.Species = species;
+		this.species = species;
 	}
 	public Character getSex() {
-		return Sex;
+		return sex;
 	}
 	public void setSex(Character sex) {
-		this.Sex = sex;
+		this.sex = sex;
 	}
 	public String getBreed() {
-		return Breed;
+		return breed;
 	}
 	public void setBreed(String breed) {
-		this.Breed = breed;
+		this.breed = breed;
 	}
 	public Integer getAge() {
-		return Age;
+		return age;
 	}
 	public void setAge(Integer age) {
-		this.Age = age;
+		this.age = age;
 	}
 	public String getRfid() {
-		return RFID;
+		return rfid;
 	}
 	public void setRfid(String rfid) {
-		this.RFID = rfid;
+		this.rfid = rfid;
 	}
 	public String getAltered() {
-		return Altered;
+		return altered;
 	}
 	public void setAltered(String altered) {
-		this.Altered = altered;
+		this.altered = altered;
 	}
 	public Double getWeight() {
-		return Weight;
+		return weight;
 	}
 	public void setWeight(Double weight) {
-		this.Weight = weight;
+		this.weight = weight;
 	}
-	public String getSpecial_Problem() {
-		return Special_Problem;
+	public String getSpecialProblem() {
+		return specialProblem;
 	}
-	public void setSpecial_Problem(String specialProblem) {
-		this.Special_Problem = specialProblem;
+	public void setSpecialProblem(String specialProblem) {
+		this.specialProblem = specialProblem;
 	}
-	public String getContinuous_Medication() {
-		return Continuous_Medication;
+	public String getContinuousMedication() {
+		return continuousMedication;
 	}
-	public void setContinuous_Medication(String continuousMedication) {
-		this.Continuous_Medication = continuousMedication;
+	public void setContinuousMedication(String continuousMedication) {
+		this.continuousMedication = continuousMedication;
 	}
-	public String getSpecial_Instructions() {
-		return Special_Instructions;
+	public String getSpecialInstructions() {
+		return specialInstructions;
 	}
-	public void setSpecial_Instructions(String specialInstructions) {
-		this.Special_Instructions = specialInstructions;
+	public void setSpecialInstructions(String specialInstructions) {
+		this.specialInstructions = specialInstructions;
 	}
-	public String getSpecial_Diet() {
-		return Special_Diet;
+	public String getSpecialDiet() {
+		return specialDiet;
 	}
-	public void setSpecial_Diet(String specialDiet) {
-		this.Special_Diet = specialDiet;
+	public void setSpecialDiet(String specialDiet) {
+		this.specialDiet = specialDiet;
 	}
 	public String getTatoo() {
-		return Tatoo;
+		return tatoo;
 	}
 	public void setTatoo(String tatoo) {
-		this.Tatoo = tatoo;
+		this.tatoo = tatoo;
 	}
 	public String getColor() {
-		return Color;
+		return color;
 	}
 	public void setColor(String colour) {
-		this.Color = colour;
+		this.color = colour;
 	}
 	public ArrayList<AnimalStatus> getStatus() {
-		return Status;
+		return status;
 	}
 	public void setStatus(ArrayList<AnimalStatus> status) {
-		this.Status = status;
+		this.status = status;
 	}
 	public Integer getBookedId() {
-		return BookedId;
+		return bookedId;
 	}
 	public void setBookedId(Integer bookedId) {
-		this.BookedId = bookedId;
+		this.bookedId = bookedId;
 	}
 	
 }
