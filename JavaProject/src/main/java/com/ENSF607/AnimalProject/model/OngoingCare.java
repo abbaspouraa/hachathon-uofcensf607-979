@@ -13,8 +13,6 @@ import javax.persistence.Table;
 @Table(name = "ONGOING_CARE")
 public class OngoingCare {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "careId")
 	Integer careId;
 	
@@ -22,6 +20,7 @@ public class OngoingCare {
 	Integer userId;
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "animalId",
 			nullable = false)
 	Integer animalId;
