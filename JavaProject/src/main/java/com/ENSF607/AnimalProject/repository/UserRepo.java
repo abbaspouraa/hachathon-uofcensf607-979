@@ -1,25 +1,24 @@
 package com.ENSF607.AnimalProject.repository;
 
 import com.ENSF607.AnimalProject.model.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface UserRepo extends PagingAndSortingRepository<User, Long> {
+@Repository
+public interface UserRepo extends PagingAndSortingRepository<User, Integer> {
 
-//    Optional<User> findByuserId(Long aLong);
-
-    Optional<User> findBylName(String name);
-    Optional<User> findByfName(String name);
+//    Optional<User> findBylName(String name);
+//    Optional<User> findByfName(String name);
 
 
 
-    List<User> findByRole(String role);
+//    List<User> findByRole(String role);
 
     List<User> findAll();
+    User findByuserid(Long userid);
+    User findByuseridAndPassword(Long userid, String pass);
 
-    Page<User> findAll(Pageable pageable);
+//    Page<User> findAll(Pageable pageable);
 }
