@@ -1,122 +1,142 @@
 package com.ENSF607.AnimalProject.model;
 
-import lombok.Data;
+import com.sun.istack.NotNull;
 
-//@Entity
-//@Table(name="User")
-@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
-public abstract class User {
-    public User(){}
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
-    public User(Long userId, String fname, String lname, String role, String email) {
-        UserId = userId;
-        this.Fname = fname;
-        this.Lname = lname;
-        this.Role = role;
-        this.Email = email;
-    }
+@Entity
+@Table(name="User")
+public class User {
 
-    //    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "ucid", unique = true)
-    Long UserId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "id")
+    private Long id;
 
-//    @Column(name="fname")
-    String Fname;
-
-//    @Column(name="lname")
-    String Lname;
+    @NotNull
+    @NotBlank
+    @Column(unique = true)
+    @NotEmpty(message = "UserId is required!")
+    private Long userid;
 
 //    @NotNull
-//    @Column(name="role")
-    protected String Role;
+//    @NotBlank
+//    @Column(name = "Password")
+//    @NotEmpty(message = "Password is required!")
+    private String password;
 
-//    @Column(name="email")
-    String Email;
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "FName")
+//    @NotEmpty(message = "First name is required!")
+    private String fName;
 
-//    @Column (name = "CREATE_AT", nullable = false, updatable = false)
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date createdAt;
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "LName")
+//    @NotEmpty(message = "Last name is required!")
+    private String lName;
 
-//    @Column (name = "UPDATE_AT", nullable = true)
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date updateAt;
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "Role")
+//    @NotEmpty(message = "User role is required!")
+    private String role;
 
-//    @PrePersist
-//    public void setCreationDate(){
-//        this.createdAt = new Date();
-//    }
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "Email")
+//    @NotEmpty(message = "Email is required!")
+    private String email;
 
-//    @PreUpdate
-//    public void setChangeDate(){
-//        this.updateAt = new Date();
-//    }
+    @Column(name = "CREATED_AT", nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
 
+    @Column(name = "UPDATED_AT", nullable = true, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
+
+    @PrePersist
+    public void setCreatedAt(){
+        this.createdAt = new Date();
+    }
+
+    @PreUpdate
+    public void setUpdatedAt(){
+        this.updatedAt = new Date();
+    }
+
+
+    public Long getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Long userId) {
+        this.userid = userId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @Override
     public String toString() {
         return "User{" +
-                "fname='" + Fname + '\'' +
-                ", UCID=" + UserId +
+                "id=" + id +
+                ", userId=" + userid +
+                ", password='" + password + '\'' +
+                ", fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", role='" + role + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 
-    public String getFname() {
-        return Fname;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setFname(String fname) {
-        this.Fname = fname;
-    }
-
-    public String getLname() {
-        return Lname;
-    }
-
-    public void setLname(String lname) {
-        this.Lname = lname;
-    }
-
-    public String getRole() {
-        return Role;
-    }
-
-    public void setRole(String role) {
-        this.Role = role;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        this.Email = email;
-    }
-
-//    public Date getCreatedAt() {
-//        return createdAt;
-//    }
-
-//    public void setCreatedAt(Date createdAt) {
-//        this.createdAt = createdAt;
-//    }
-
-//    public Date getUpdateAt() {
-//        return updateAt;
-//    }
-
-//    public void setUpdateAt(Date updateAt) {
-//        this.updateAt = updateAt;
-//    }
-
-    public void setUcid(Long ucid) {
-        this.UserId = ucid;
-    }
-
-//    @Id
-    public Long getUcid() {
-        return UserId;
+    public Long getId() {
+        return id;
     }
 }

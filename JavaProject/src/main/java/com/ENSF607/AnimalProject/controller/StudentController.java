@@ -1,36 +1,41 @@
-package com.ENSF607.AnimalProject.controller;
-
-
-import com.ENSF607.AnimalProject.model.Animal;
-import com.ENSF607.AnimalProject.service.StudentService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-
-@RestController
-@RequestMapping("/student")
-public class StudentController {
-
-    final
-    StudentService studentService;
-
-    public StudentController(StudentService studentService) {
-        this.studentService = studentService;
-    }
-
-    @PostMapping("/getAllAnimals")
-    public List<Animal> getAllDAnimal(@RequestBody Animal param){
-        return studentService.SearchAnimal(param);
-    }
-
-//    @PostMapping("/addComment")
-//    public ResponseEntity<Void> addComment(@RequestBody Comment param){
-//        studentService.makeComment(param);
-//        return ResponseEntity.status(HttpURLConnection.HTTP_CREATED).build();
+//package com.ENSF607.AnimalProject.controller;
+//
+//
+//import com.ENSF607.AnimalProject.model.Animal;
+//import com.ENSF607.AnimalProject.model.Comment;
+//import com.ENSF607.AnimalProject.service.StudentService;
+//import org.springframework.http.HttpStatus;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.net.HttpURLConnection;
+//import java.util.List;
+//
+//@RestController
+//@RequestMapping(value = "/api/student")
+//public class StudentController {
+//
+//    final
+//    StudentService studentService;
+//
+//    public StudentController(StudentService studentService) {
+//        this.studentService = studentService;
 //    }
+
+    //    @PostMapping("/getAllAnimals/{id}/{pass}")
+//    @RequestMapping(method = RequestMethod.GET,value ="/getAllAnimals/{id}/{pass}" )
+//    @GetMapping("/getAllAnimals/{userID}/{userPass}")
+//    public ResponseEntity<List<Animal>> getAllAnimal(
+//            @RequestParam(value = "animalName", required = false) String name,
+//            @RequestParam(value = "animalSex", required = false) String sex,
+//            @RequestParam(value = "specie", required = false) String spc,
+//            @PathVariable("userID") String id,
+//            @PathVariable("userPass") String pass) {
+//        Animal param = new Animal(name, spc, sex==null? null:sex.charAt(0));
+//        return ResponseEntity.status(HttpStatus.OK).body(studentService.searchAnimal(param, id, pass));
+//    }
+
+
 
 //    @PutMapping("/get")
 //    public String PutMapping(){
@@ -46,4 +51,4 @@ public class StudentController {
 //    public String DeleteMapping(@PathVariable("ucid") int UCID){
 //        return "Deleted Successfully: " + studentService.deleteStudent(UCID);
 //    }
-}
+//}

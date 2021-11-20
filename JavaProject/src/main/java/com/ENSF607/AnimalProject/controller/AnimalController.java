@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.ENSF607.AnimalProject.model.Animal;
-import com.ENSF607.AnimalProject.service.AnimalService;
 
 @RestController
 @RequestMapping("/animal")
 public class AnimalController {
+
 
 	@Autowired
 	private AnimalService animalService;	

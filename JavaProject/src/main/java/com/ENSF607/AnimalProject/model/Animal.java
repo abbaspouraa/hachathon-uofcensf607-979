@@ -1,5 +1,6 @@
 package com.ENSF607.AnimalProject.model;
 
+
 import java.util.ArrayList;
 
 import javax.persistence.Column;
