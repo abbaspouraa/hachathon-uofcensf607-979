@@ -5,93 +5,78 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @Entity
 @Table(name="User")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id", unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "id")
     private Long id;
 
     @NotNull
     @NotBlank
-    @Column(name = "UserId")
+    @Column(unique = true)
     @NotEmpty(message = "UserId is required!")
-    private Long userId2;
+    private Long userid;
 
-    @NotNull
-    @NotBlank
-    @Column(name = "Password")
-    @NotEmpty(message = "Password is required!")
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "Password")
+//    @NotEmpty(message = "Password is required!")
     private String password;
 
-    @NotNull
-    @NotBlank
-    @Column(name = "FName")
-    @NotEmpty(message = "First name is required!")
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "FName")
+//    @NotEmpty(message = "First name is required!")
     private String fName;
 
-    @NotNull
-    @NotBlank
-    @Column(name = "LName")
-    @NotEmpty(message = "Last name is required!")
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "LName")
+//    @NotEmpty(message = "Last name is required!")
     private String lName;
 
-    @NotNull
-    @NotBlank
-    @Column(name = "Role")
-    @NotEmpty(message = "User role is required!")
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "Role")
+//    @NotEmpty(message = "User role is required!")
     private String role;
 
-    @NotNull
-    @NotBlank
-    @Column(name = "Email")
-    @NotEmpty(message = "Email is required!")
+//    @NotNull
+//    @NotBlank
+//    @Column(name = "Email")
+//    @NotEmpty(message = "Email is required!")
     private String email;
 
-//    @Column(name = "CREATED_AT", nullable = false, updatable = false)
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date createdAt;
-//
-//    @Column(name = "UPDATED_AT", nullable = true, updatable = false)
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date updatedAt;
+    @Column(name = "CREATED_AT", nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
 
-//    @PrePersist
-//    public void setCreatedAt(){
-//        this.createdAt = new Date();
-//    }
-//
-//    @PreUpdate
-//    public void setUpdatedAt(){
-//        this.updatedAt = new Date();
-//    }
+    @Column(name = "UPDATED_AT", nullable = true, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
 
-//    public Long getUserId() {
-//        return userId;
-//    }
-
-//    public void setUserId(Long userId) {
-//        this.userId = userId;
-//    }
-
-
-    public Long getId() {
-        return id;
+    @PrePersist
+    public void setCreatedAt(){
+        this.createdAt = new Date();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @PreUpdate
+    public void setUpdatedAt(){
+        this.updatedAt = new Date();
     }
 
-    public Long getUserId2() {
-        return userId2;
+
+    public Long getUserid() {
+        return userid;
     }
 
-    public void setUserId2(Long userId) {
-        this.userId2 = userId;
+    public void setUserid(Long userId) {
+        this.userid = userId;
     }
 
     public String getPassword() {
@@ -132,5 +117,26 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userId=" + userid +
+                ", password='" + password + '\'' +
+                ", fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", role='" + role + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
