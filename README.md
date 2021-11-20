@@ -1,6 +1,10 @@
 # Final-Project
 607 final project
 
+Amir Abbaspour 	30076398
+Cameron Pepper 	30142126
+ALi Zirahi	30036449
+
 
 **Please follow these steps to test our APIs **
 - First, run the Vet_Application_Database.sql databse file
