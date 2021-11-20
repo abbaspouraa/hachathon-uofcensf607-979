@@ -4,31 +4,32 @@ import java.util.ArrayList;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-@Entity(name = "ANIMAL")
+@Entity
+@Table(name = "ANIMAL")
 public class Animal {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "animalId",
 			nullable = false)
 	Integer animalId;
 	
-	@Column(name = "name",
-			nullable = false)
+	@Column(name = "name")
 	String name;
 	
-	@Column(name = "species",
-			nullable = false)
+	@Column(name = "species")
 	String species;
 	
-	@Column(name = "sex",
-			nullable = false)
+	@Column(name = "sex")
 	Character sex;
 	
-	@Column(name = "breed",
-			nullable = false)
+	@Column(name = "breed")
 	String breed;
 	
 	@Column(name = "age")

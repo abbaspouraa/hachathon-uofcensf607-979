@@ -13,48 +13,38 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ENSF607.AnimalProject.model.Animal;
-import com.ENSF607.AnimalProject.repository.AnimalRepository;
+import com.ENSF607.AnimalProject.service.AnimalService;
 
 @RestController
 @RequestMapping("/animal")
 public class AnimalController {
 
 	@Autowired
-	private AnimalRepository animalRepository;	
+	private AnimalService animalService;	
 	
 	@GetMapping("/getAll")
 	public List<Animal> getAllData(){
-		return animalRepository.findAll();
+		return animalService.getAllData();
 	}
 	
 	@GetMapping("/get/{name}")
 	public List<Animal> searchByName(@PathVariable String name){
-		return animalRepository.findByName(name);
+		return animalService.searchByName(name);
 	}
 	
 	@PostMapping("/addAnimal")
     public String addAnimal(@RequestBody Animal animal){
-        animalRepository.save(animal);
-        return "Successfully added: Animal " + animal.getAnimalId();
+        return animalService.addAnimal(animal);
     }
 	
 	@PutMapping("/update/{id}")
 	public String updateAnimal(@RequestBody Animal animal, @PathVariable Integer id) {
-		Animal a = animalRepository.findByAnimalId(id);
-		
-		if (a == null) {
-			return "Unable to update animal, not found in the database.";
-		}
-		
-		animal.setAnimalId(id);
-		animalRepository.save(animal);
-		return "Successfully updated: Animal " + animal.getAnimalId();
+		return animalService.updateAnimal(animal, id);
 	}
 	
 	@DeleteMapping("/delete/{id}")
-    public String DeleteMapping(@PathVariable("id") int id){
-		animalRepository.deleteById(id);
-        return "Successfully deleted: Animal " + id;
+    public String deleteAnimal(@PathVariable("id") int id){
+		return animalService.deleteAnimal(id);
     }
 	
 	
