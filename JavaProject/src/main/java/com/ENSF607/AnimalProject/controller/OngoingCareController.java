@@ -10,26 +10,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ENSF607.AnimalProject.model.Animal;
 import com.ENSF607.AnimalProject.model.OngoingCare;
-import com.ENSF607.AnimalProject.repository.OngoingCareRepository;
+import com.ENSF607.AnimalProject.service.OngoingCareService;
 
 @RestController
 @RequestMapping("/ongoingcare")
 public class OngoingCareController{
 
 	@Autowired
-	OngoingCareRepository ongoingCareRepository;
+	OngoingCareService ongoingCareService;
 	
 	@GetMapping("/get/{id}")
 	public List<OngoingCare> searchById(@PathVariable Integer id){
-		return ongoingCareRepository.findByAnimalId(id);
+		return ongoingCareService.searchById(id);
 	}
 	
-	@PostMapping("/addOngoingCare")
+	@PostMapping("/add")
     public String add(@RequestBody OngoingCare care){
-        ongoingCareRepository.save(care);
-        return "Successfully added: Ongoing Care for animal: " + care.getAnimalId();
+        return ongoingCareService.add(care);
     }
 	
 }

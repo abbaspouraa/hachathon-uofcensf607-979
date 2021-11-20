@@ -4,18 +4,21 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "ONGOING_CARE")
+@Entity
+@Table(name = "ONGOING_CARE")
 public class OngoingCare {
 	
 	@Id
-	@Column(name = "careId",
-			nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "careId")
 	Integer careId;
 	
-	@Column(name = "userId",
-			nullable = false)	
+	@Column(name = "userId")	
 	Integer userId;
 	
 	@Id
@@ -23,12 +26,10 @@ public class OngoingCare {
 			nullable = false)
 	Integer animalId;
 	
-	@Column(name = "date",
-			nullable = false)
+	@Column(name = "date")
 	Date date;
 	
-	@Column(name = "processDescription",
-			nullable = false)
+	@Column(name = "processDescription")
 	String processDescription;
 	
 	@Column(name = "weight")
