@@ -10,5 +10,5 @@ import com.ENSF607.AnimalProject.model.OngoingCare;
 @Component
 public interface OngoingCareRepository extends JpaRepository<OngoingCare, Integer>{
 
-	public List<OngoingCare> findByAnimalId(Integer animalId);
+	public List<OngoingCare> findByanimalId(Integer animalId);
 }

@@ -14,8 +14,8 @@ public class OngoingCareService {
 	@Autowired
 	OngoingCareRepository ongoingCareRepository;
 	
-	public List<OngoingCare> searchById(Integer id){
-		return ongoingCareRepository.findByAnimalId(id);
+	public List<OngoingCare> searchByanimalId(Integer id){
+		return ongoingCareRepository.findByanimalId(id);
 	}
 	
 	public String add(OngoingCare care){
