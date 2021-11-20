@@ -22,7 +22,7 @@ public class OngoingCareController{
 	
 	@GetMapping("/get/{id}")
 	public List<OngoingCare> searchById(@PathVariable Integer id){
-		return ongoingCareService.searchById(id);
+		return ongoingCareService.searchByanimalId(id);
 	}
 	
 	@PostMapping("/add")
