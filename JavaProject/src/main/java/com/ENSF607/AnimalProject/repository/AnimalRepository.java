@@ -10,7 +10,7 @@ import com.ENSF607.AnimalProject.model.Animal;
 @Component
 public interface AnimalRepository extends JpaRepository<Animal, Integer>{
 
-	public List<Animal> findByName(String name);
+	public List<Animal> findByname(String name);
 	
-	public Animal findByAnimalId(Integer animalId);
+	public Animal findByanimalId(Integer animalId);
 }
