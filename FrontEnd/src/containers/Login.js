@@ -3,38 +3,17 @@ import "./Login.css";
 import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
 import Box from '@mui/material/Box';
-import PropTypes from 'prop-types';
-import axios from 'axios';
 
-export default function Login({ setToken }){
-    const [username, setUsername] = useState("");
+export default function Login(){
+    const [UCID, setUCID] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-
-        const fname = username;
-        const credentials = {username, password}
-        console.log(credentials);
-
-        axios({
-            method: 'post',
-            url: 'http://localhost:8090/user/login',
-            data: {
-                "fName" : username,
-                "password" : password
-            }
-        })
-        .then((response) => {
-            console.log(response.data);
-            if(response.data != null){
-                setToken(response.data)
-            }
-        });
+    function validate(){
+        return UCID.length > 0 && password.length > 0;
     }
 
-    function validate(){
-        return username.length > 0 && password.length > 0;
+    function handleSubmit(e){
+        e.preventDefault();
     }
 
     return (
@@ -47,11 +26,11 @@ export default function Login({ setToken }){
             <form onSubmit={handleSubmit}>
                 <TextField 
                     required
-                    id="outlined-username" 
-                    label="Username" 
+                    id="outlined-UCID" 
+                    label="UCID" 
                     variant="outlined"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)} 
+                    value={UCID}
+                    onChange={(e) => setUCID(e.target.value)} 
                 />
                 <TextField 
                     required
@@ -62,14 +41,10 @@ export default function Login({ setToken }){
                     onChange={(e) => setPassword(e.target.value)} 
                 />
                 <br></br>
-                <Button className="loginButton" variant="contained" type='submit'>Sign in</Button>
+                <Button classname="loginButton" variant="contained" type='submit'>Sign in</Button>
             </form>
 
         </div>
 
     );
-}
-
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
 }
