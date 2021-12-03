@@ -66,28 +66,15 @@ public class UserServiceImpl{
     
     public Map<String, String> authenticateUser(LoginRequest request){
     	User user = userRepo.findByfnameAndPassword(request.getfName(), request.getPassword());
-    	System.out.println(request.getfName() + " " + request.getPassword());
     	HashMap<String, String> map = new HashMap<>();
     	
     	if(user == null) {
     		map.put(" ", " ");
     		return null;
     	}
-    	else if (user.getRole().equals("Admin")) {
-    		map.put("token", "Admin");
-    		return map;
-    	}
-    	else if (user.getRole().equals("Instructor")) {
-    		map.put("token", "Instructor");
-    		return map;
-    	}
-    	else if (user.getRole().equals("Technician")) {
-    		map.put("token", "Technician");
-    		return map;
-    	}
     	else {
-    		map.put(" ", " ");
-    		return null;
+    		map.put("token", user.getRole());
+    		return map;
     	}
     }
 
