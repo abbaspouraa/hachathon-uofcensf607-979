@@ -5,23 +5,31 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Login from "./containers/Login";
 import Home from "./containers/Home";
 import UserManagement from "./containers/UserManagement";
+import React, { useState } from 'react';
 
 function App() {
+  const [token, setToken] = useState();
+  const [role, setRole] = useState("");
+
+  if(!token){
+    return <Login setToken={setToken} />
+  }
+
   return (
     <Router>
       <div>
-        <Link to="/">Login</Link>
-        <Link to="/Home">Home</Link>
-        <Link to="/Users">User Management</Link>
+        {/* <Link to="/">Login</Link> 
+        <Link to="/">Home</Link>
+        <Link to="/Users">User Management</Link> */}
       </div>
 
-      <hr />
+      {/* <hr /> */}
 
       <Routes>
-        <Route exact path="/" element={<Login/>}>
-        </Route>
-        <Route exact path="/Home" element={<Home/>}>
-        </Route>
+        {/*<Route exact path="/" element={<Login/>}>
+        </Route> */}
+        <Route exact path="/" element={<Home token={token}/>}>
+        </Route> 
         <Route exact path="/Users" element={<UserManagement/>}>
         </Route>
       </Routes>
