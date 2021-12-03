@@ -1,9 +1,13 @@
 import "./Home.css";
-import AdminHome from "../components/AdminHome"
 
-export default function Home({token}){
+export default function Home(){
 
     return(
-        <div> {token.token === "Admin" && <AdminHome />}</div>
+        <div className="Home">
+            <h1>
+                University of Calgary <br></br>
+                School of Veterinary Medicine
+            </h1>
+        </div>
     );
 }
