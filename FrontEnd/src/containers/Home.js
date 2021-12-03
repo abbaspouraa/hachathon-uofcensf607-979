@@ -1,13 +1,9 @@
 import "./Home.css";
+import AdminHome from "../components/cameron/AdminHome"
 
-export default function Home(){
+export default function Home({token}){
 
     return(
-        <div className="Home">
-            <h1>
-                University of Calgary <br></br>
-                School of Veterinary Medicine
-            </h1>
-        </div>
+        <div> {token.token === "Admin" && <AdminHome />}</div>
     );
 }

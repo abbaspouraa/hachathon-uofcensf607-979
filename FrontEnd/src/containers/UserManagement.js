@@ -35,8 +35,7 @@ export default function UserManagement(){
                     <Button variant="outlined" >Block User</Button>
                     <Button variant="outlined" >Edit User</Button>
                 </Stack>
-                </div>
-                
+                </div>  
             </form>
         </div>
     );
