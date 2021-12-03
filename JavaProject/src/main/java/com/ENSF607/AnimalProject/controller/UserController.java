@@ -1,5 +1,6 @@
 package com.ENSF607.AnimalProject.controller;
 
+import com.ENSF607.AnimalProject.model.LoginRequest;
 import com.ENSF607.AnimalProject.model.User;
 import com.ENSF607.AnimalProject.service.UserServiceImpl;
 import javassist.NotFoundException;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.naming.AuthenticationException;
 import javax.net.ssl.HttpsURLConnection;
 import java.util.List;
+import java.util.Map;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/user")
 public class UserController {
 
@@ -55,5 +58,12 @@ public class UserController {
 
         return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(user, ucid, pass));
     }
+    
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> authenticateUser(
+    		@RequestBody LoginRequest request){
+    	return ResponseEntity.status(HttpStatus.OK).body(userService.authenticateUser(request));
+    }
+    
 
 }

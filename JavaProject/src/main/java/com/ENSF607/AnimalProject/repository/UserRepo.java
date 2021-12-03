@@ -19,6 +19,8 @@ public interface UserRepo extends PagingAndSortingRepository<User, Integer> {
     List<User> findAll();
     User findByuserid(Long userid);
     User findByuseridAndPassword(Long userid, String pass);
+    
+    User findByfnameAndPassword(String fname, String pass);
 
 //    Page<User> findAll(Pageable pageable);
 }
