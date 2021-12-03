@@ -10,7 +10,9 @@ import java.util.List;
 @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Integer>{
 
-	public List<Animal> findByname(String name);
+	List<Animal> findByname(String name);
 	
-	public Animal findByanimalid(Integer animalId);
+	Animal findByanimalid(Integer animalId);
+
+	List<Animal> findAllBystatus(String status);
 }
