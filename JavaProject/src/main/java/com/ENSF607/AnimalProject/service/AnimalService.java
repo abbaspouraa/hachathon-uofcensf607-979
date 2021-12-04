@@ -23,6 +23,10 @@ public class AnimalService {
 	public List<Animal> getAnimalsByStatus(String status){
 		return animalRepository.findAllBystatus(status);
 	}
+
+	public Animal getAnimalById(Integer id){
+		return animalRepository.findByanimalid(id);
+	}
 	
 	public List<Animal> searchByName(String name){
 		return animalRepository.findByname(name);
