@@ -25,7 +25,7 @@ class AnimalService{
     }
 
     getAllAnimalByStatus(status){
-        return axios.getUri(ANIMAL_BASE_REST_API_URL + '/' + status);
+        return axios.get(ANIMAL_BASE_REST_API_URL + '/' + status);
     }
 
 
