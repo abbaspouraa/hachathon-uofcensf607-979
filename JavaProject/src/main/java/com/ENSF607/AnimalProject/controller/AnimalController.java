@@ -41,7 +41,7 @@ public class AnimalController {
     }
 	
 	@PutMapping("{id}/{status}")
-	public ResponseEntity<Animal> updateAnimal(
+	public ResponseEntity<Animal> updateAnimalStatus(
 			@PathVariable Integer id,
 			@PathVariable String status
 	) throws NotFoundException {
