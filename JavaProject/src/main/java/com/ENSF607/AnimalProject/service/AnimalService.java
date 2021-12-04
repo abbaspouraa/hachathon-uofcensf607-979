@@ -42,7 +42,7 @@ public class AnimalService {
 		Animal theAnimal = animalRepository.findByanimalid(id);
 		
 		if (theAnimal == null) {
-			throw new NotFoundException("Such user does not exist!");
+			throw new NotFoundException("Such animal does not exist!");
 		}
 		
 		theAnimal.setStatus(animal.getStatus()); // updating status
