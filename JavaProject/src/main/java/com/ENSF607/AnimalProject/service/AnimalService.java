@@ -38,14 +38,14 @@ public class AnimalService {
     }
 
     //don't forget to update other variables
-	public Animal updateAnimal(Animal animal, Integer id) throws NotFoundException {
+	public Animal updateAnimalStatus(Integer id, String status) throws NotFoundException {
 		Animal theAnimal = animalRepository.findByanimalid(id);
 		
 		if (theAnimal == null) {
 			throw new NotFoundException("Such animal does not exist!");
 		}
 		
-		theAnimal.setStatus(animal.getStatus()); // updating status
+		theAnimal.setStatus(status); // updating status
 		return animalRepository.save(theAnimal);
 	}
 	

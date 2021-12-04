@@ -40,9 +40,12 @@ public class AnimalController {
         return animalService.addAnimal(animal);
     }
 	
-	@PutMapping("{id}")
-	public ResponseEntity<Animal> updateAnimal(@RequestBody Animal animal, @PathVariable Integer id) throws NotFoundException {
-		return  ResponseEntity.status(HttpStatus.OK).body(animalService.updateAnimal(animal, id));
+	@PutMapping("{id}/{status}")
+	public ResponseEntity<Animal> updateAnimal(
+			@PathVariable Integer id,
+			@PathVariable String status
+	) throws NotFoundException {
+		return  ResponseEntity.status(HttpStatus.OK).body(animalService.updateAnimalStatus(id, status));
 	}
 	
 	@DeleteMapping("{id}")
