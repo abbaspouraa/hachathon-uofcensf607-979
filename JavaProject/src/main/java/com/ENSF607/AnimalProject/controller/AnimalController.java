@@ -24,18 +24,19 @@ public class AnimalController {
 		return ResponseEntity.status(HttpStatus.OK).body(animalService.getAllData());
 	}
 
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Animal> getAnimalById(@PathVariable Integer id){
 		return ResponseEntity.status(HttpStatus.OK).body((animalService.getAnimalById(id)));
 	}
 
-	@GetMapping("{status}")
+	@GetMapping("/getStats/{status}")
 	public ResponseEntity<List<Animal>> getAllByStatus(@PathVariable String status){
+		System.out.println("here");
 		return ResponseEntity.status(HttpStatus.OK).body(animalService.getAnimalsByStatus(status));
 	}
 
 
-	@GetMapping("{name}")
+	@GetMapping("/{name}")
 	public List<Animal> searchByName(@PathVariable String name){
 		return animalService.searchByName(name);
 	}
@@ -45,7 +46,7 @@ public class AnimalController {
         return animalService.addAnimal(animal);
     }
 	
-	@PutMapping("{id}/{status}")
+	@GetMapping("/{id}/{status}")
 	public ResponseEntity<Animal> updateAnimalStatus(
 			@PathVariable Integer id,
 			@PathVariable String status
@@ -53,7 +54,7 @@ public class AnimalController {
 		return  ResponseEntity.status(HttpStatus.OK).body(animalService.updateAnimalStatus(id, status));
 	}
 	
-	@DeleteMapping("{id}")
+	@DeleteMapping("/{id}")
     public String deleteAnimal(@PathVariable("id") int id){
 		return animalService.deleteAnimal(id);
     }
