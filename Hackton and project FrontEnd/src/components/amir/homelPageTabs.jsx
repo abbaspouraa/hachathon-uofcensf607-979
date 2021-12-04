@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import SearchAnimal from "./searchAnimal";
+import ListRequestedAnimals from "../Ali/requestedAnimals";
 
 export function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -53,7 +54,7 @@ export default function HomePageTabs() {
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                     <Tab label="Animal" {...a11yProps(0)} />
                     <Tab label="Alerts" {...a11yProps(1)} />
-                    <Tab label="Treatments" {...a11yProps(2)} />
+                    <Tab label="Requested Animals" {...a11yProps(2)} />
                     <Tab label="User Management" {...a11yProps(3)} />
                 </Tabs>
             </Box>
@@ -70,7 +71,7 @@ export default function HomePageTabs() {
 
 
             <TabPanel value={value} index={2}>
-                Tab 3
+                <ListRequestedAnimals />
             </TabPanel>
 
 

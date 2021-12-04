@@ -52,7 +52,7 @@ export default function SearchAnimal() {
 
     const reserveAnimal = (id) => {
         if (id)
-            AnimalService.updateAnimalStatus(id, "Reserved").then((response) => {
+            AnimalService.updateAnimalStatus(id, "Requested").then((response) => {
 
         }).catch(error =>{
             console.log(error);

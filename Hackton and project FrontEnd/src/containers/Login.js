@@ -41,7 +41,7 @@ export default function Login({ setToken }){
         <div className="Login">
             <h1>
                 University of Calgary <br></br>
-                School of Veterinary Medicine <br></br>
+                Faculty of Veterinary Medicine <br></br>
             </h1>
             <h3>Animal Management Application</h3>
             <form onSubmit={handleSubmit}>
