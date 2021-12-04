@@ -2,6 +2,7 @@ package com.ENSF607.AnimalProject.controller;
 
 import com.ENSF607.AnimalProject.model.Animal;
 import com.ENSF607.AnimalProject.service.AnimalService;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,22 +30,22 @@ public class AnimalController {
 	}
 
 
-	@GetMapping("/get/{name}")
+	@GetMapping("{name}")
 	public List<Animal> searchByName(@PathVariable String name){
 		return animalService.searchByName(name);
 	}
 	
-	@PostMapping("/addAnimal")
+	@PostMapping("")
     public String addAnimal(@RequestBody Animal animal){
         return animalService.addAnimal(animal);
     }
 	
-	@PutMapping("/update/{id}")
-	public String updateAnimal(@RequestBody Animal animal, @PathVariable Integer id) {
-		return animalService.updateAnimal(animal, id);
+	@PutMapping("{id}")
+	public ResponseEntity<Animal> updateAnimal(@RequestBody Animal animal, @PathVariable Integer id) throws NotFoundException {
+		return  ResponseEntity.status(HttpStatus.OK).body(animalService.updateAnimal(animal, id));
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("{id}")
     public String deleteAnimal(@PathVariable("id") int id){
 		return animalService.deleteAnimal(id);
     }

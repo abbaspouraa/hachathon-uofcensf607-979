@@ -4,6 +4,7 @@ package com.ENSF607.AnimalProject.service;
 import com.ENSF607.AnimalProject.model.Animal;
 import com.ENSF607.AnimalProject.repository.AnimalRepository;
 
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,17 +36,17 @@ public class AnimalService {
         animalRepository.save(animal);
         return "Successfully added: Animal " + animal.getAnimalid();
     }
-	
-	public String updateAnimal(Animal animal, Integer id) {
-		Animal a = animalRepository.findByanimalid(id);
+
+    //don't forget to update other variables
+	public Animal updateAnimal(Animal animal, Integer id) throws NotFoundException {
+		Animal theAnimal = animalRepository.findByanimalid(id);
 		
-		if (a == null) {
-			return "Unable to update animal, not found in the database.";
+		if (theAnimal == null) {
+			throw new NotFoundException("Such user does not exist!");
 		}
 		
-		animal.setAnimalid(id);
-		animalRepository.save(animal);
-		return "Successfully updated: Animal " + animal.getAnimalid();
+		theAnimal.setStatus(animal.getStatus()); // updating status
+		return animalRepository.save(theAnimal);
 	}
 	
 	public String deleteAnimal(Integer id){
