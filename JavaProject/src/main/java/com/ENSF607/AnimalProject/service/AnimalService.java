@@ -27,6 +27,10 @@ public class AnimalService {
 		return animalRepository.findByname(name);
 	}
 
+	public List<Animal> searchAnimal(String name, String species, String sex){
+		return animalRepository.searchAnimal(name,species,sex);
+	}
+
 	public String addAnimal(Animal animal){
         animalRepository.save(animal);
         return "Successfully added: Animal " + animal.getAnimalid();

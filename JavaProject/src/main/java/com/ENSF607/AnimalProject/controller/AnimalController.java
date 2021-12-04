@@ -49,5 +49,10 @@ public class AnimalController {
 		return animalService.deleteAnimal(id);
     }
 	
-	
+	@GetMapping("/{name}/{species}/{sex}")
+	public ResponseEntity<List<Animal>> searchAnimal(@PathVariable(required = false) String name,
+													 @PathVariable(required = false) String species,
+													 @PathVariable(required = false) String sex){
+		return ResponseEntity.status(HttpStatus.OK).body(animalService.searchAnimal(name, species, sex));
+	}
 }
