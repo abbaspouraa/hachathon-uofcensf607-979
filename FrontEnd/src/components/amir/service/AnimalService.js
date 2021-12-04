@@ -21,11 +21,11 @@ class AnimalService{
     }
 
     getAllAnimal(){
-        return axios.get(ANIMAL_BASE_REST_API_URL + '/' + "getAll");
+        return axios.get(ANIMAL_BASE_REST_API_URL);
     }
 
     getAllAnimalByStatus(status){
-        return axios.put(ANIMAL_BASE_REST_API_URL + '/' + status);
+        return axios.getUri(ANIMAL_BASE_REST_API_URL + '/' + status);
     }
 
 

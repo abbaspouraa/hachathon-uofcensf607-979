@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/animal")
 public class AnimalController {
@@ -19,7 +19,7 @@ public class AnimalController {
 	private AnimalService animalService;
 
 //	@CrossOrigin(origins = "http://localhost:8090")
-	@GetMapping()
+	@GetMapping
 	public ResponseEntity<List<Animal>> getAllData(){
 		return ResponseEntity.status(HttpStatus.OK).body(animalService.getAllData());
 	}
