@@ -19,14 +19,19 @@ public class AnimalController {
 	private AnimalService animalService;
 
 //	@CrossOrigin(origins = "http://localhost:8090")
-	@GetMapping("/getAll")
+	@GetMapping()
 	public ResponseEntity<List<Animal>> getAllData(){
 		return ResponseEntity.status(HttpStatus.OK).body(animalService.getAllData());
 	}
 
-	@GetMapping("/getByStatus")
-	public ResponseEntity<List<Animal>> getAllByStatus(){
-		return ResponseEntity.status(HttpStatus.OK).body(animalService.getAnimalsByStatus("Healthy"));
+	@GetMapping("{id}")
+	public ResponseEntity<Animal> getAnimalById(@PathVariable Integer id){
+		return ResponseEntity.status(HttpStatus.OK).body((animalService.getAnimalById(id)));
+	}
+
+	@GetMapping("{status}")
+	public ResponseEntity<List<Animal>> getAllByStatus(@PathVariable String status){
+		return ResponseEntity.status(HttpStatus.OK).body(animalService.getAnimalsByStatus(status));
 	}
 
 
@@ -35,7 +40,7 @@ public class AnimalController {
 		return animalService.searchByName(name);
 	}
 	
-	@PostMapping("")
+	@PostMapping()
     public String addAnimal(@RequestBody Animal animal){
         return animalService.addAnimal(animal);
     }
